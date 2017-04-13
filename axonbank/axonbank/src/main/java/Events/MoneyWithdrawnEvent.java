@@ -1,4 +1,4 @@
-package com.novomd.sample;
+package Events;
 
 
 public class MoneyWithdrawnEvent {

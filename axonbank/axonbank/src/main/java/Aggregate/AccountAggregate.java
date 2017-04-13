@@ -1,4 +1,4 @@
-package com.novomd.sample;
+package Aggregate;
 
 import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
@@ -7,8 +7,15 @@ import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.spring.stereotype.Aggregate;
 
+import com.novomd.Exception.OverdraftLimitExceedsException;
+
+import Commands.CreateAccountCommand;
+import Commands.WithdrawMoneyCommand;
+import Events.AccountCreateEvent;
+import Events.MoneyWithdrawnEvent;
+
 @Aggregate
-public class Account {
+public class AccountAggregate {
 
 	@AggregateIdentifier
 	private String accountId;
@@ -17,12 +24,12 @@ public class Account {
 	
 	private int overdraftLimit;
 
-	public Account() {
+	public AccountAggregate() {
 
 	}
 
 	@CommandHandler
-	public Account(CreateAccountCommand command) {
+	public AccountAggregate(CreateAccountCommand command) {
 		apply(new AccountCreateEvent(command.getAcountId(), command.getOverdraftLimit()));
 		System.out.println("CreateAccountCommand executed");
 	}

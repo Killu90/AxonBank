@@ -1,4 +1,4 @@
-package com.novomd.sample;
+package Commands;
 
 
 public class CreateAccountCommand {

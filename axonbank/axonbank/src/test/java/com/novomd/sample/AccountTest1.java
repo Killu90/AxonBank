@@ -5,14 +5,22 @@ import org.axonframework.test.Fixtures;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.novomd.Exception.OverdraftLimitExceedsException;
+
+import Aggregate.AccountAggregate;
+import Commands.CreateAccountCommand;
+import Commands.WithdrawMoneyCommand;
+import Events.AccountCreateEvent;
+import Events.MoneyWithdrawnEvent;
+
 
 public class AccountTest1 {
 
-	private FixtureConfiguration<Account> fixture;
+	private FixtureConfiguration<AccountAggregate> fixture;
 
 	@Before
 	public void setUp() {
-		fixture = Fixtures.newGivenWhenThenFixture(Account.class);
+		fixture = Fixtures.newGivenWhenThenFixture(AccountAggregate.class);
 	}
 
 	@Test

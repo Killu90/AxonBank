@@ -1,4 +1,4 @@
-package com.novomd.sample;
+package Events;
 
 
 public class AccountCreateEvent {
@@ -6,11 +6,6 @@ public class AccountCreateEvent {
 	private String accountId;
 
 	private int overdraftLimit;
-	
-	
-	
-
-
 
 	public AccountCreateEvent(String accountId, int amount) {
 		super();
